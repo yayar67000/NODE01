@@ -16,8 +16,8 @@ const pokemonList = [
 function App() {
 	return (
 		<div>
-			<PokemonCard pokeman={pokemonList[0]} />
-			<PokemonCard pokeman={pokemonList[1]} />
+			<PokemonCard pokemon={pokemonList[0]} />
+			<PokemonCard pokemon={pokemonList[1]} />
 		</div>
 	);
 }
