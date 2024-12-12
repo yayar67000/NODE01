@@ -10,6 +10,7 @@ const pokemonList = [
 	},
 	{
 		name: "mew",
+		imgSrc: "",
 	},
 ];
 
