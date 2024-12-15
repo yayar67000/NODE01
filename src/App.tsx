@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 
 import PokemonCard from "./compenants/PokemonCard";
+// import { renderToString } from "react-dom/server";
 
 const pokemonList = [
 	{
@@ -34,34 +35,20 @@ function App() {
 	const [pokemonIndex, setPokemanIndex] = useState(0);
 
 	return (
-		<>
-			<div>
-				<PokemonCard pokemon={pokemonList[pokemonIndex]} />
-			</div>
-			<div>
-				{pokemonIndex > 0 ? (
+		<div>
+			<nav>
+				{pokemonList.map((pokemons, index) => (
 					<button
 						type="button"
-						onClick={() => setPokemanIndex(pokemonIndex - 1)}
+						key={pokemons.name}
+						onClick={() => setPokemanIndex(index)}
 					>
-						Précédent
+						{pokemons.name}
 					</button>
-				) : (
-					"Il y a bien un suivant"
-				)}
-
-				{pokemonIndex < pokemonList.length - 1 ? (
-					<button
-						type="button"
-						onClick={() => setPokemanIndex(pokemonIndex + 1)}
-					>
-						Suivant
-					</button>
-				) : (
-					"Il y a bien un précédent"
-				)}
-			</div>
-		</>
+				))}
+			</nav>
+			<PokemonCard pokemon={pokemonList[pokemonIndex]} />
+		</div>
 	);
 }
 
